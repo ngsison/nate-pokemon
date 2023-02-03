@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		437121BF298D642400806099 /* PokemonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121BE298D642400806099 /* PokemonDataSource.swift */; };
 		B538B6B028F554FD0066BB3D /* RemotePokemonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B6AF28F554FD0066BB3D /* RemotePokemonDetails.swift */; };
 		B538B6B228F55D980066BB3D /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B6B128F55D980066BB3D /* UIImage+URL.swift */; };
 		B538B6BA28F58AC30066BB3D /* ZoogleAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B538B6B928F58AC30066BB3D /* ZoogleAnalytics */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		437121BE298D642400806099 /* PokemonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDataSource.swift; sourceTree = "<group>"; };
 		B538B6AF28F554FD0066BB3D /* RemotePokemonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemonDetails.swift; sourceTree = "<group>"; };
 		B538B6B128F55D980066BB3D /* UIImage+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+URL.swift"; sourceTree = "<group>"; };
 		B538B6B728F58A8B0066BB3D /* ZoogleAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ZoogleAnalytics; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B5DFE1B528F461A50055CD85 /* RemotePokemonDataSource.swift */,
+				437121BE298D642400806099 /* PokemonDataSource.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				B5B776B628F4341A0034F302 /* PokemonDetailsViewController.swift in Sources */,
 				B5DFE1BA28F472940055CD85 /* URL+FetchDecodable.swift in Sources */,
 				B5B7768128F432680034F302 /* AppDelegate.swift in Sources */,
+				437121BF298D642400806099 /* PokemonDataSource.swift in Sources */,
 				B538B6B028F554FD0066BB3D /* RemotePokemonDetails.swift in Sources */,
 				B5DFE1AC28F43AC00055CD85 /* RemotePokemonListItem.swift in Sources */,
 				B5DFE1B328F43BCD0055CD85 /* LoadingTableViewCell.swift in Sources */,
