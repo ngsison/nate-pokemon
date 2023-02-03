@@ -12,10 +12,9 @@ class PokemonListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    private var viewModel: PokemonListViewModel
     private let loadingReuseIdentifier = "loading"
     private let pokemonItemReuseIdentifier = "pokemon"
-    
-    var viewModel: PokemonListViewModel
     
     init(viewModel: PokemonListViewModel = PokemonListViewModel(pokemonDataSource: RemotePokemonDataSource.shared)) {
         self.viewModel = viewModel
