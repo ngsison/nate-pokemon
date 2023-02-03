@@ -99,6 +99,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		437121B4298D524600806099 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5DFE1B728F461E80055CD85 /* RemotePokemonList.swift */,
+				B5DFE1AB28F43AC00055CD85 /* RemotePokemonListItem.swift */,
+				B538B6AF28F554FD0066BB3D /* RemotePokemonDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		437121B5298D524C00806099 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5B776B028F433B00034F302 /* PokemonListViewController.swift */,
+				B5B776B128F433B00034F302 /* PokemonListViewController.xib */,
+				B5B776B428F4341A0034F302 /* PokemonDetailsViewController.swift */,
+				B5B776B528F4341A0034F302 /* PokemonDetailsViewController.xib */,
+				B5DFE1AD28F43BBF0055CD85 /* PokemonListItemTableViewCell.swift */,
+				B5DFE1AE28F43BBF0055CD85 /* PokemonListItemTableViewCell.xib */,
+				B5DFE1B128F43BCD0055CD85 /* LoadingTableViewCell.swift */,
+				B5DFE1B228F43BCD0055CD85 /* LoadingTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		437121B6298D525000806099 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		437121B7298D525600806099 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				437121B8298D525D00806099 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		437121B8298D525D00806099 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5DFE1B928F472940055CD85 /* URL+FetchDecodable.swift */,
+				B5DFE1BB28F472D50055CD85 /* Data+Decodable.swift */,
+				B538B6B128F55D980066BB3D /* UIImage+URL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		437121B9298D52B800806099 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5DFE1B528F461A50055CD85 /* RemotePokemonDataSource.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B538B6B828F58ABD0066BB3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,26 +189,16 @@
 		B5B7767F28F432680034F302 /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				437121B9298D52B800806099 /* Services */,
+				437121B4298D524600806099 /* Models */,
+				437121B6298D525000806099 /* ViewModels */,
+				437121B5298D524C00806099 /* Views */,
+				437121B7298D525600806099 /* Utilities */,
 				B5B7768028F432680034F302 /* AppDelegate.swift */,
 				B5B7768228F432680034F302 /* SceneDelegate.swift */,
 				B5B7768928F4326A0034F302 /* Assets.xcassets */,
 				B5B7768B28F4326A0034F302 /* LaunchScreen.storyboard */,
 				B5B7768E28F4326A0034F302 /* Info.plist */,
-				B5B776B028F433B00034F302 /* PokemonListViewController.swift */,
-				B5B776B128F433B00034F302 /* PokemonListViewController.xib */,
-				B5B776B428F4341A0034F302 /* PokemonDetailsViewController.swift */,
-				B5B776B528F4341A0034F302 /* PokemonDetailsViewController.xib */,
-				B5DFE1AB28F43AC00055CD85 /* RemotePokemonListItem.swift */,
-				B5DFE1AD28F43BBF0055CD85 /* PokemonListItemTableViewCell.swift */,
-				B5DFE1AE28F43BBF0055CD85 /* PokemonListItemTableViewCell.xib */,
-				B5DFE1B128F43BCD0055CD85 /* LoadingTableViewCell.swift */,
-				B5DFE1B228F43BCD0055CD85 /* LoadingTableViewCell.xib */,
-				B5DFE1B528F461A50055CD85 /* RemotePokemonDataSource.swift */,
-				B5DFE1B728F461E80055CD85 /* RemotePokemonList.swift */,
-				B5DFE1B928F472940055CD85 /* URL+FetchDecodable.swift */,
-				B5DFE1BB28F472D50055CD85 /* Data+Decodable.swift */,
-				B538B6AF28F554FD0066BB3D /* RemotePokemonDetails.swift */,
-				B538B6B128F55D980066BB3D /* UIImage+URL.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
