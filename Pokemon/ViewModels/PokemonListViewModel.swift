@@ -14,6 +14,7 @@ class PokemonListViewModel {
     
     private var morePokemonToLoad = true
     private var pokemonList = [RemotePokemonListItem]()
+    private let fetchPokemonLimit = 20
     
     init(pokemonDataSource: PokemonDataSource, pokemonLogger: PokemonLogger) {
         self.pokemonDataSource = pokemonDataSource
@@ -21,7 +22,7 @@ class PokemonListViewModel {
     }
     
     func fetchMorePokemon(completion: @escaping (Bool) -> Void) {
-        pokemonDataSource.getPokemonList(offset: pokemonList.count, limit: 20) { [weak self] result in
+        pokemonDataSource.getPokemonList(offset: pokemonList.count, limit: fetchPokemonLimit) { [weak self] result in
             guard let self else {
                 completion(false)
                 return
