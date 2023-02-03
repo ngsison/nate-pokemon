@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ZoogleAnalytics
 
 class PokemonListViewController: UIViewController {
     
@@ -16,13 +15,15 @@ class PokemonListViewController: UIViewController {
     private let loadingReuseIdentifier = "loading"
     private let pokemonItemReuseIdentifier = "pokemon"
     
-    init(viewModel: PokemonListViewModel = PokemonListViewModel(pokemonDataSource: RemotePokemonDataSource.shared)) {
+    init(viewModel: PokemonListViewModel = PokemonListViewModel(pokemonDataSource: RemotePokemonDataSource.shared,
+                                                                pokemonLogger: ZoogleAnalyticsLogger.shared)) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = PokemonListViewModel(pokemonDataSource: RemotePokemonDataSource.shared)
+        self.viewModel = PokemonListViewModel(pokemonDataSource: RemotePokemonDataSource.shared,
+                                              pokemonLogger: ZoogleAnalyticsLogger.shared)
         super.init(coder: coder)
     }
     
@@ -101,8 +102,7 @@ extension PokemonListViewController: UITableViewDelegate {
             return
         }
         
-        ZoogleAnalytics.shared.log(event: ZoogleAnalyticsEvent(key: "pokemon_selected", parameters: ["id": pokemonId]))
-        
+        viewModel.logPokemonSelected(pokemonId: pokemonId)
         navigationController?.show(PokemonDetailsViewController(id: pokemonId), sender: self)
     }
     

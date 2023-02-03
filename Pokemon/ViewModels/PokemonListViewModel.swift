@@ -10,11 +10,14 @@ import Foundation
 class PokemonListViewModel {
     
     private var pokemonDataSource: PokemonDataSource
+    private var pokemonLogger: PokemonLogger
+    
     private var morePokemonToLoad = true
     private var pokemonList = [RemotePokemonListItem]()
     
-    init(pokemonDataSource: PokemonDataSource) {
+    init(pokemonDataSource: PokemonDataSource, pokemonLogger: PokemonLogger) {
         self.pokemonDataSource = pokemonDataSource
+        self.pokemonLogger = pokemonLogger
     }
     
     func fetchMorePokemon(completion: @escaping (Bool) -> Void) {
@@ -33,6 +36,10 @@ class PokemonListViewModel {
                 completion(false)
             }
         }
+    }
+    
+    func logPokemonSelected(pokemonId: String) {
+        pokemonLogger.logEvent(key: .pokemonSelected, parameters: ["id": pokemonId])
     }
 }
 
