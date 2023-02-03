@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RemotePokemonDataSource {
+class RemotePokemonDataSource: PokemonDataSource {
 
     enum Error: Swift.Error {
         case couldNotCreateUrl
