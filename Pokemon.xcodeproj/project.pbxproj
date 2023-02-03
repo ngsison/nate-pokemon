@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		437121BF298D642400806099 /* PokemonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121BE298D642400806099 /* PokemonDataSource.swift */; };
 		437121C1298D64C200806099 /* LocalPokemonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121C0298D64C200806099 /* LocalPokemonDataSource.swift */; };
+		437121C3298D667000806099 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121C2298D667000806099 /* PokemonListViewModel.swift */; };
 		B538B6B028F554FD0066BB3D /* RemotePokemonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B6AF28F554FD0066BB3D /* RemotePokemonDetails.swift */; };
 		B538B6B228F55D980066BB3D /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B6B128F55D980066BB3D /* UIImage+URL.swift */; };
 		B538B6BA28F58AC30066BB3D /* ZoogleAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B538B6B928F58AC30066BB3D /* ZoogleAnalytics */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		437121BE298D642400806099 /* PokemonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDataSource.swift; sourceTree = "<group>"; };
 		437121C0298D64C200806099 /* LocalPokemonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPokemonDataSource.swift; sourceTree = "<group>"; };
+		437121C2298D667000806099 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
 		B538B6AF28F554FD0066BB3D /* RemotePokemonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemonDetails.swift; sourceTree = "<group>"; };
 		B538B6B128F55D980066BB3D /* UIImage+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+URL.swift"; sourceTree = "<group>"; };
 		B538B6B728F58A8B0066BB3D /* ZoogleAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ZoogleAnalytics; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		437121B6298D525000806099 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				437121C2298D667000806099 /* PokemonListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				B5B7768128F432680034F302 /* AppDelegate.swift in Sources */,
 				437121BF298D642400806099 /* PokemonDataSource.swift in Sources */,
 				B538B6B028F554FD0066BB3D /* RemotePokemonDetails.swift in Sources */,
+				437121C3298D667000806099 /* PokemonListViewModel.swift in Sources */,
 				B5DFE1AC28F43AC00055CD85 /* RemotePokemonListItem.swift in Sources */,
 				B5DFE1B328F43BCD0055CD85 /* LoadingTableViewCell.swift in Sources */,
 				B538B6B228F55D980066BB3D /* UIImage+URL.swift in Sources */,
