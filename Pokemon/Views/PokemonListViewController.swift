@@ -103,7 +103,13 @@ extension PokemonListViewController: UITableViewDelegate {
         }
         
         viewModel.logPokemonSelected(pokemonId: pokemonId)
-        navigationController?.show(PokemonDetailsViewController(id: pokemonId), sender: self)
+        showPokemonDetails(pokemonId: pokemonId)
+    }
+    
+    private func showPokemonDetails(pokemonId: String) {
+        let detailsViewModel = PokemonDetailsViewModel(id: pokemonId)
+        let detailsViewController = PokemonDetailsViewController(viewModel: detailsViewModel)
+        navigationController?.show(detailsViewController, sender: self)
     }
     
     private func pokemonIdNotFound() {

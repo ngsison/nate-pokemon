@@ -44,7 +44,7 @@ class PokemonListViewModel {
     }
 }
 
-// MARK: - Pokemon Getters
+// MARK: - PokemonList Getters
 
 extension PokemonListViewModel {
     var pokemonCount: Int {

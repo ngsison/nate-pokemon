@@ -9,17 +9,17 @@ import UIKit
 
 class PokemonDetailsViewController: UIViewController {
 
-    private let id: String
-
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var typesLabel: UILabel!
     @IBOutlet var weightLabel: UILabel!
     @IBOutlet var heightLabel: UILabel!
     @IBOutlet var loadingView: UIView!
-
-    init(id: String) {
-        self.id = id
+    
+    private var viewModel: PokemonDetailsViewModel
+    
+    init(viewModel: PokemonDetailsViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -34,36 +34,33 @@ class PokemonDetailsViewController: UIViewController {
 
     private func fetchPokemonDetails() {
         loadingView.isHidden = false
-        RemotePokemonDataSource.shared.getPokemonDetails(id: id) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let details):
-                    self?.pokemonFetchSucceeded(details: details)
-                case .failure(_):
-                    self?.pokemonFetchFailed()
+        viewModel.fetchPokemonDetails { success in
+            if success {
+                DispatchQueue.main.async {
+                    self.pokemonFetchSucceeded()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.pokemonFetchFailed()
                 }
             }
         }
     }
 
-    private func pokemonFetchSucceeded(details: RemotePokemonDetails) {
-        titleLabel.text = details.name.capitalized
-
-        let types = details.types.map({ type in
-            type.type.name.capitalized
-        }).joined(separator: ", ")
+    private func pokemonFetchSucceeded() {
+        titleLabel.text = viewModel.pokemonName
+        typesLabel.text = viewModel.typesText
+        weightLabel.text = viewModel.weightText
+        heightLabel.text = viewModel.heightText
         
-        typesLabel.text = "Types: \(types)"
-
-        weightLabel.text = "Weight: \(details.weight)kg"
-        heightLabel.text = "Height: \(details.height)cm"
-
-        imageView.setURL(details.sprites.frontDefault, completion: { [weak self] success in
-            if !success {
-                self?.imageView.image = UIImage(named: "unknown")
+        if let imageUrl = viewModel.imageUrl {
+            imageView.setURL(imageUrl) { [weak self] success in
+                if !success {
+                    self?.imageView.image = UIImage(named: "unknown")
+                }
+                self?.loadingView.isHidden = true
             }
-            self?.loadingView.isHidden = true
-        })
+        }
     }
 
     private func pokemonFetchFailed() {
