@@ -38,7 +38,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
         XCTAssert(expectedPokemonCount == actualPokemonCount)
     }
     
-    func test_logPokemonSelected_isWorking() {
+    func test_logPokemonSelected() {
         // arrange
         let fakePokemonLogger = FakePokemonLogger()
         viewModel = PokemonListViewModel(pokemonDataSource: FakePokemonDataSource(),

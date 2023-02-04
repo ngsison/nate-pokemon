@@ -40,11 +40,12 @@ class PokemonDetailsViewModel {
 
 extension PokemonDetailsViewModel {
     var pokemonName: String? {
-        details?.name.capitalized
+        guard let details else { return nil }
+        return details.name.capitalized
     }
     
-    var typesText: String {
-        guard let details else { return "Types:" }
+    var typesText: String? {
+        guard let details else { return nil }
         
         let types = details.types
             .map { $0.type.name.capitalized }
@@ -53,20 +54,14 @@ extension PokemonDetailsViewModel {
         return "Types: \(types)"
     }
     
-    var weightText: String {
-        if let weight = details?.weight {
-            return "Weight: \(weight)kg"
-        } else {
-            return "Weight:"
-        }
+    var weightText: String? {
+        guard let details else { return nil }
+        return "Weight: \(details.weight)kg"
     }
     
-    var heightText: String {
-        if let height = details?.height {
-            return "Height: \(height)cm"
-        } else {
-            return "Height:"
-        }
+    var heightText: String? {
+        guard let details else { return nil }
+        return "Height: \(details.height)cm"
     }
     
     var imageUrl: URL? {

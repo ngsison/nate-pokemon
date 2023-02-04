@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4333C6CB298EDE7E00651D0A /* PokemonDetailsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4333C6CA298EDE7E00651D0A /* PokemonDetailsViewModel_Tests.swift */; };
 		437121BF298D642400806099 /* PokemonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121BE298D642400806099 /* PokemonDataSource.swift */; };
 		437121C1298D64C200806099 /* LocalPokemonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121C0298D64C200806099 /* LocalPokemonDataSource.swift */; };
 		437121C3298D667000806099 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437121C2298D667000806099 /* PokemonListViewModel.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4333C6CA298EDE7E00651D0A /* PokemonDetailsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewModel_Tests.swift; sourceTree = "<group>"; };
 		437121BE298D642400806099 /* PokemonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDataSource.swift; sourceTree = "<group>"; };
 		437121C0298D64C200806099 /* LocalPokemonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPokemonDataSource.swift; sourceTree = "<group>"; };
 		437121C2298D667000806099 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				437121E7298EB51100806099 /* Helpers */,
 				437121E6298EB50A00806099 /* Fakes */,
 				437121DD298E7FB700806099 /* PokemonListViewModel_Tests.swift */,
+				4333C6CA298EDE7E00651D0A /* PokemonDetailsViewModel_Tests.swift */,
 			);
 			path = PokemonTests;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4333C6CB298EDE7E00651D0A /* PokemonDetailsViewModel_Tests.swift in Sources */,
 				437121DE298E7FB700806099 /* PokemonListViewModel_Tests.swift in Sources */,
 				437121E1298E82C200806099 /* FakePokemonDataSource.swift in Sources */,
 				437121E3298E82E800806099 /* FakePokemonLogger.swift in Sources */,
