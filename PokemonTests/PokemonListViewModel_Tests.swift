@@ -17,7 +17,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_fetchMorePokemon_shouldNotClearPreviousDataWhenFailed() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 20),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 20),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -57,7 +57,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_pokemonCount_shouldReturnPokemonListResultsCount() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 20),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 20),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -77,7 +77,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_numberOfRows_shouldReturnPokemonListResultsCountPlusOne() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 20),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 20),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -97,7 +97,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_numberOfRows_shouldReturnPokemonListResultsCount() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -117,7 +117,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_pokemonId_shouldEqualToOne() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -137,7 +137,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_pokemonName_shouldBeCapitalized() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -157,7 +157,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_hasPokemonCell_shouldReturnTrue() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -176,7 +176,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_hasPokemonCell_shouldReturnFalse() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -195,7 +195,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_hasLoadingIndicatorCell_shouldReturnTrue() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
@@ -214,7 +214,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
     
     func test_hasLoadingIndicatorCell_shouldReturnFalse() {
         // arrange
-        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemonList(count: 100),
                                                 count: 100)
         
         let fakeDataSource = FakePokemonDataSource()
