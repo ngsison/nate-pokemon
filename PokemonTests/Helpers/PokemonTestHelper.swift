@@ -17,4 +17,13 @@ class PokemonTestHelper {
                                                       url: URL(string: urlString)!),
                      count: count)
     }
+    
+    static func getFakePokemonDetails() -> RemotePokemonDetails {
+        RemotePokemonDetails(name: "bulbasaur",
+                             weight: 69,
+                             height: 7,
+                             types: [RemotePokemonType(slot: 1, type: RemotePokemonTypeResource(name: "grass")),
+                                     RemotePokemonType(slot: 2, type: RemotePokemonTypeResource(name: "poison"))],
+                             sprites: RemotePokemonSprites(frontDefault: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")!))
+    }
 }
