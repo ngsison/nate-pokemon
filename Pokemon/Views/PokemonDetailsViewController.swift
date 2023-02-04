@@ -29,7 +29,16 @@ class PokemonDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearData()
         fetchPokemonDetails()
+    }
+    
+    private func clearData() {
+        titleLabel.text = nil
+        typesLabel.text = nil
+        weightLabel.text = nil
+        heightLabel.text = nil
+        imageView.image = nil
     }
 
     private func fetchPokemonDetails() {
