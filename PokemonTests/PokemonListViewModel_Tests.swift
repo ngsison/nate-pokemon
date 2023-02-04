@@ -15,7 +15,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
         viewModel = nil
     }
     
-    func test_fetchMorePokemont_shouldNotClearPreviousDataWhenFailed() {
+    func test_fetchMorePokemon_shouldNotClearPreviousDataWhenFailed() {
         // arrange
         let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 20),
                                                 count: 100)
