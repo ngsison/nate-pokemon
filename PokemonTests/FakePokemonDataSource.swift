@@ -10,11 +10,12 @@ import Foundation
 
 class FakePokemonDataSource: PokemonDataSource {
     
+    var shouldReturnSuccess = true
     var fakePokemonList: RemotePokemonList?
     var fakePokemonDetails: RemotePokemonDetails?
     
     func getPokemonList(offset: Int, limit: Int, completion: @escaping (Result<Pokemon.RemotePokemonList, Error>) -> Void) {
-        if let fakePokemonList {
+        if shouldReturnSuccess, let fakePokemonList {
             completion(.success(fakePokemonList))
         } else {
             completion(.failure(NSError(domain: "", code: -1)))
@@ -22,7 +23,7 @@ class FakePokemonDataSource: PokemonDataSource {
     }
     
     func getPokemonDetails(id: String, completion: @escaping (Result<Pokemon.RemotePokemonDetails, Error>) -> Void) {
-        if let fakePokemonDetails {
+        if shouldReturnSuccess, let fakePokemonDetails {
             completion(.success(fakePokemonDetails))
         } else {
             completion(.failure(NSError(domain: "", code: -1)))

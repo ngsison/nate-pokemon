@@ -9,8 +9,12 @@ import Foundation
 @testable import Pokemon
 
 class PokemonTestHelper {
-    static func getFakePokemons(count: Int) -> [RemotePokemonListItem] {
-        return Array(repeating: RemotePokemonListItem(name: "pikachu", url: URL(string: "https://google.com")!),
+    static func getFakePokemons(pokemonName: String = "bulbasaur",
+                                urlString: String = "https://pokeapi.co/api/v2/pokemon/1/",
+                                count: Int) -> [RemotePokemonListItem] {
+        
+        return Array(repeating: RemotePokemonListItem(name: pokemonName,
+                                                      url: URL(string: urlString)!),
                      count: count)
     }
 }

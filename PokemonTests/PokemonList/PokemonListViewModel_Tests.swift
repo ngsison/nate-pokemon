@@ -15,6 +15,46 @@ final class PokemonListViewModel_Tests: XCTestCase {
         viewModel = nil
     }
     
+    func test_fetchMorePokemont_shouldNotClearPreviousDataWhenFailed() {
+        // arrange
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 20),
+                                                count: 100)
+        
+        let fakeDataSource = FakePokemonDataSource()
+        fakeDataSource.fakePokemonList = fakePokemonList
+        
+        viewModel = PokemonListViewModel(pokemonDataSource: fakeDataSource,
+                                         pokemonLogger: FakePokemonLogger())
+        
+        // act
+        viewModel.fetchMorePokemon(completion: { _ in }) // here, pokemonCount becomes 20
+        
+        fakeDataSource.shouldReturnSuccess = false
+        viewModel.fetchMorePokemon(completion: { _ in }) // and here, pokemonCount should still be 20
+        
+        // assert
+        let expectedPokemonCount = 20
+        let actualPokemonCount = viewModel.pokemonCount
+        XCTAssert(expectedPokemonCount == actualPokemonCount)
+    }
+    
+    func test_logPokemonSelected_isWorking() {
+        // arrange
+        let fakePokemonLogger = FakePokemonLogger()
+        viewModel = PokemonListViewModel(pokemonDataSource: FakePokemonDataSource(),
+                                         pokemonLogger: fakePokemonLogger)
+        
+        // act
+        viewModel.logPokemonSelected(pokemonId: "pokemon1")
+        viewModel.logPokemonSelected(pokemonId: "pokemon2")
+        viewModel.logPokemonSelected(pokemonId: "pokemon3")
+        
+        // assert
+        let expectedLoggedEventsCount = 3
+        let actualLoggedEventsCount = fakePokemonLogger.loggedEventsCount
+        XCTAssert(expectedLoggedEventsCount == actualLoggedEventsCount)
+    }
+    
     func test_pokemonCount_shouldReturnPokemonListResultsCount() {
         // arrange
         let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 20),
@@ -30,7 +70,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
         viewModel.fetchMorePokemon(completion: { _ in })
         
         // assert
-        let expectedPokemonCount = fakePokemonList.results.count
+        let expectedPokemonCount = 20
         let actualPokemonCount = viewModel.pokemonCount
         XCTAssert(expectedPokemonCount == actualPokemonCount)
     }
@@ -50,7 +90,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
         viewModel.fetchMorePokemon(completion: { _ in })
         
         // assert
-        let expectedNumberOfRows = fakePokemonList.results.count + 1
+        let expectedNumberOfRows = 21
         let actualNumberOfRows = viewModel.numberOfRows
         XCTAssert(expectedNumberOfRows == actualNumberOfRows)
     }
@@ -70,9 +110,29 @@ final class PokemonListViewModel_Tests: XCTestCase {
         viewModel.fetchMorePokemon(completion: { _ in })
         
         // assert
-        let expectedNumberOfRows = fakePokemonList.results.count
+        let expectedNumberOfRows = 100
         let actualNumberOfRows = viewModel.numberOfRows
         XCTAssert(expectedNumberOfRows == actualNumberOfRows)
+    }
+    
+    func test_pokemonId_shouldEqualToOne() {
+        // arrange
+        let fakePokemonList = RemotePokemonList(results: PokemonTestHelper.getFakePokemons(count: 100),
+                                                count: 100)
+        
+        let fakeDataSource = FakePokemonDataSource()
+        fakeDataSource.fakePokemonList = fakePokemonList
+        
+        viewModel = PokemonListViewModel(pokemonDataSource: fakeDataSource,
+                                         pokemonLogger: FakePokemonLogger())
+        
+        // act
+        viewModel.fetchMorePokemon(completion: { _ in })
+        
+        // assert
+        let expectedPokemonId = "1"
+        let actualPokemonId = viewModel.pokemonId(at: 0)
+        XCTAssert(expectedPokemonId == actualPokemonId)
     }
     
     func test_pokemonName_shouldBeCapitalized() {
@@ -90,7 +150,7 @@ final class PokemonListViewModel_Tests: XCTestCase {
         viewModel.fetchMorePokemon(completion: { _ in })
         
         // assert
-        let expectedPokemonName = fakePokemonList.results.first!.name.capitalized
+        let expectedPokemonName = "Bulbasaur"
         let actualPokemonName = viewModel.pokemonName(at: 0)
         XCTAssert(expectedPokemonName == actualPokemonName)
     }
@@ -169,20 +229,5 @@ final class PokemonListViewModel_Tests: XCTestCase {
         // assert
         let indexHasLoadingIndicatorCell = viewModel.hasLoadingIndicatorCell(at: 99)
         XCTAssertFalse(indexHasLoadingIndicatorCell)
-    }
-    
-    func test_logPokemonSelected_isWorking() {
-        // arrange
-        let fakePokemonLogger = FakePokemonLogger()
-        viewModel = PokemonListViewModel(pokemonDataSource: FakePokemonDataSource(),
-                                         pokemonLogger: fakePokemonLogger)
-        
-        // act
-        viewModel.logPokemonSelected(pokemonId: "pokemon1")
-        viewModel.logPokemonSelected(pokemonId: "pokemon2")
-        viewModel.logPokemonSelected(pokemonId: "pokemon3")
-        
-        // assert
-        XCTAssert(fakePokemonLogger.loggedEventsCount == 3)
     }
 }
