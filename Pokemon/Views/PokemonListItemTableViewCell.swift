@@ -11,4 +11,8 @@ class PokemonListItemTableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
 }
